@@ -23,7 +23,7 @@ export async function startGameServer(): Promise<GameServerAllocation> {
         Accept: "application/json",
         "X-Api-Key": apiKey,
       },
-      body: JSON.stringify({ timeoutSeconds: 0 }),
+      body: JSON.stringify({ region: "us-east" }),
     }
   );
 
