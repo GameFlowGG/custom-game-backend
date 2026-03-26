@@ -6,7 +6,7 @@ export interface GameServerAllocation {
   serverName: string;
 }
 
-export async function startGameServer(): Promise<GameServerAllocation> {
+export async function startGameServer(payload?: string): Promise<GameServerAllocation> {
   const gameId = Deno.env.get("GAMEFLOW_GAME_ID");
   const apiKey = Deno.env.get("GAMEFLOW_API_KEY");
 
@@ -14,16 +14,20 @@ export async function startGameServer(): Promise<GameServerAllocation> {
     throw new Error("GAMEFLOW_GAME_ID and GAMEFLOW_API_KEY must be set");
   }
 
+  const body: Record<string, unknown> = { timeoutSeconds: 0, region: "us-east" };
+  if (payload) {
+    body.payload = payload;
+  }
+
   const response = await fetch(
     `${GAMEFLOW_API_URL}/games/${encodeURIComponent(gameId)}/servers`,
     {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
         "X-Api-Key": apiKey,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ region: "us-east" }),
+      body: JSON.stringify(body),
     }
   );
 

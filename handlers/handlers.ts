@@ -334,9 +334,15 @@ async function handleLobbyStart(
     return;
   }
 
+  const payload = JSON.stringify({
+    players: allPlayers.map((p) => p.accountId),
+    teamA: lobby.teamA.map((p) => ({ accountId: p.accountId, username: p.username })),
+    teamB: lobby.teamB.map((p) => ({ accountId: p.accountId, username: p.username })),
+  });
+
   let server;
   try {
-    server = await startGameServer();
+    server = await startGameServer(payload);
   } catch (error) {
     console.error("GameFlow allocation failed:", error);
     socket.send(
