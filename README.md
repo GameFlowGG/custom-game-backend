@@ -1,10 +1,10 @@
 # Custom Game Backend
 
-<a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
+![Deno](https://img.shields.io/badge/Deno-2.x-blue?logo=deno) ![License](https://img.shields.io/badge/license-MIT-green)
 
 A lightweight, custom game backend using **Deno**, **SQLite**, **WebSockets**, and **KV Store**, designed to be deployed to [Deno Deploy](https://deno.com/deploy) in seconds.
 
-![Deno](https://img.shields.io/badge/Deno-2.x-blue?logo=deno)
+<a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
 
 ## Features
 
