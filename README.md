@@ -4,6 +4,8 @@
 
 A lightweight, custom game backend using **Deno**, **SQLite**, **WebSockets**, and **KV Store**, designed to be deployed to [Deno Deploy](https://deno.com/deploy) in seconds.
 
+![Deno](https://img.shields.io/badge/Deno-2.x-blue?logo=deno)
+
 ## Features
 
 - **SQLite** for persistent account storage
