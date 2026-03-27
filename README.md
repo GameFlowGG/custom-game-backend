@@ -90,9 +90,8 @@ Connect to `ws://localhost:3000/_ws?token=JWT_TOKEN`
 
 1. Client obtains Discord OAuth token
 2. Client sends POST to `/auth/discord` with `{ discordToken: "..." }`
-3. Server validates with Discord API
-4. Server creates/updates account and returns JWT
-5. Client uses JWT for API calls and WebSocket connection
+3. Server validates with Discord API, creates/updates account and returns JWT
+4. Client uses JWT for API calls and WebSocket connection
 
 ```bash
 curl -X POST http://localhost:3000/auth/discord \
