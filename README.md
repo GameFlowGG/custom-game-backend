@@ -2,7 +2,7 @@
 
 <a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
 
-A lightweight game backend using **Deno**, **SQLite**, **WebSockets**, and **KV Store**.
+A lightweight game backend template using **Deno**, **SQLite**, **WebSockets**, and **KV Store**, designed to be deployed to [Deno Deploy](https://deno.com/deploy) in seconds.
 
 ## Features
 
@@ -109,6 +109,12 @@ curl -X POST http://localhost:3000/auth/anonymous \
 ## Production Deployment
 
 ### Deploy to [Deno Deploy](https://deno.com/deploy)
+
+The quickest way to deploy is using the button below:
+
+<a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend-template"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
+
+Alternatively, deploy manually via the CLI:
 
 1. Install Deno Deploy CLI: `deno install -Arf https://deno.land/x/deploy/deployctl.ts`
 2. Deploy: `deployctl deploy --project=your-project main.ts`
