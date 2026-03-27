@@ -1,6 +1,8 @@
-# game-backend-template
+# game-backend
 
-A game backend template using **Deno**, **SQLite**, **WebSockets**, and **KV Store**.
+<a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
+
+A lightweight game backend using **Deno**, **SQLite**, **WebSockets**, and **KV Store**.
 
 ## Features
 
@@ -10,6 +12,7 @@ A game backend template using **Deno**, **SQLite**, **WebSockets**, and **KV Sto
 - **Discord OAuth Integration**
 - **Lobby System** for team-based games
 - **Real-time Updates** via WebSocket pub/sub
+- **Game Server Allocation** via [GameFlow API](https://docs.gameflow.gg/api/gameflow-api)
 
 ## Setup
 
@@ -21,7 +24,7 @@ A game backend template using **Deno**, **SQLite**, **WebSockets**, and **KV Sto
 2. **Edit `.env` and set your JWT secret:**
    ```
    PORT=3000
-   JWT_SECRET=your-very-secret-key-here
+   JWT_SECRET=your-secret-key
    ```
 
 ## Running the Server
@@ -64,6 +67,7 @@ Connect to `ws://localhost:3000/_ws?token=JWT_TOKEN`
 | `lobby:leave` | - | Leave current lobby |
 | `lobby:ready` | `ready: boolean` | Toggle ready status |
 | `lobby:start` | - | Start match (owner only) |
+| `lobby:fill-bots` | - | Fill empty slots with bots (owner only) |
 
 **Backend → Game Client**
 

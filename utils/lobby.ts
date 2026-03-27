@@ -42,7 +42,7 @@ export async function getAllPublicLobbies(): Promise<Lobby[]> {
     }
   }
   
-  console.log(`📊 Returning ${lobbies.length} public lobbies`);
+  console.log(`Returning ${lobbies.length} public lobbies`);
 
   return lobbies;
 }

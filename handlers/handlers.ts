@@ -64,7 +64,7 @@ export async function handleMessage(
         break;
 
       case "lobby:fill-bots":
-        console.log('📨 Received lobby:fill-bots message from', session.username);
+        console.log('Received lobby:fill-bots message from', session.username);
         await handleLobbyFillBots(peerId, socket, session);
         break;
 
@@ -136,7 +136,7 @@ async function handleLobbyCreate(
 
   await saveLobby(lobby);
   console.log(
-    `🎮 Lobby created - ID: ${lobbyId}, Code: ${code}, isPrivate: ${lobby.isPrivate}, Owner: ${session.username}`
+    `Lobby created - ID: ${lobbyId}, Code: ${code}, isPrivate: ${lobby.isPrivate}, Owner: ${session.username}`
   );
 
   session.lobbyId = lobbyId;
@@ -384,11 +384,11 @@ async function handleLobbyFillBots(
   socket: WebSocket,
   session: Session
 ): Promise<void> {
-  console.log('🤖 Fill with bots requested by:', session.username);
+  console.log('Fill with bots requested by:', session.username);
   const lobbyId = session.lobbyId;
 
   if (!lobbyId) {
-    console.log('❌ Error: User not in a lobby');
+    console.error('Error: User not in a lobby');
     socket.send(JSON.stringify({ type: "error", message: "Not in a lobby" }));
     return;
   }
@@ -396,20 +396,20 @@ async function handleLobbyFillBots(
   const lobby = await getLobby(lobbyId);
 
   if (!lobby) {
-    console.log('❌ Error: Lobby not found');
+    console.error('Error: Lobby not found');
     socket.send(JSON.stringify({ type: "error", message: "Lobby not found" }));
     return;
   }
 
   if (lobby.ownerId !== session.accountId) {
-    console.log('❌ Error: User is not lobby owner');
+    console.error('Error: User is not lobby owner');
     socket.send(
       JSON.stringify({ type: "error", message: "Only lobby owner can add bots" })
     );
     return;
   }
 
-  console.log(`🤖 Adding bots to lobby ${lobby.id}. Current: Team A=${lobby.teamA.length}, Team B=${lobby.teamB.length}`);
+  console.error(`Adding bots to lobby ${lobby.id}. Current: Team A=${lobby.teamA.length}, Team B=${lobby.teamB.length}`);
 
   let botNumber = 1;
   while (lobby.teamA.length < 2) {
@@ -427,15 +427,15 @@ async function handleLobbyFillBots(
     });
   }
 
-  console.log(`✅ Bots added. New: Team A=${lobby.teamA.length}, Team B=${lobby.teamB.length}`);
+  console.log(`Bots added. New: Team A=${lobby.teamA.length}, Team B=${lobby.teamB.length}`);
 
   await saveLobby(lobby);
 
-  console.log('💾 Lobby saved, publishing update...');
+  console.log('Lobby saved, publishing update...');
 
   publishToLobby(lobby.id, { type: "lobby:updated", lobby });
   
-  console.log('📢 Update published');
+  console.log('Update published');
 }
 
 function subscribeToLobby(peerId: string, lobbyId: string): void {

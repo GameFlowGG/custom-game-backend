@@ -25,7 +25,6 @@ export async function startGameServer(payload?: string): Promise<GameServerAlloc
       method: "POST",
       headers: {
         "X-Api-Key": apiKey,
-        "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
     }

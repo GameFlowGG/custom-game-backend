@@ -17,7 +17,7 @@ export function handleWebSocket(socket: WebSocket, request: Request): void {
   const token = url.searchParams.get("token");
 
   socket.onopen = async () => {
-    console.log("🔌 WebSocket opened, token:", token?.substring(0, 20) + "...");
+    console.log("WebSocket opened, token:", token?.substring(0, 20) + "...");
     
     if (!token) {
       socket.send(JSON.stringify({ type: "error", message: "Token required" }));
@@ -27,13 +27,13 @@ export function handleWebSocket(socket: WebSocket, request: Request): void {
 
     const account = await verifyaccessToken(token);
     if (!account) {
-      console.log("❌ Token verification failed");
+      console.log("Token verification failed");
       socket.send(JSON.stringify({ type: "error", message: "Invalid token" }));
       socket.close();
       return;
     }
 
-    console.log("✅ Account verified:", account.id, account.username);
+    console.log("Account verified:", account.id, account.username);
 
     const session: Session = {
       accountId: account.id,

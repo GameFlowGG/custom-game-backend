@@ -9,11 +9,11 @@ export async function handleGetLobbies(request: Request): Promise<Response> {
 
     const lobbies = await getAllPublicLobbies();
     
-    console.log("📋 Returning", lobbies.length, "lobbies to client");
+    console.log("Returning", lobbies.length, "lobbies to client");
 
     return Response.json(lobbies);
   } catch (error) {
-    console.log("❌ GET /lobbies failed:", (error as Error).message);
+    console.log("GET /lobbies failed:", (error as Error).message);
     return Response.json(
       { error: (error as Error).message || "Unauthorized" },
       { status: 401 }

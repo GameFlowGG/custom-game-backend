@@ -5,7 +5,7 @@ import { create, getNumericDate, verify } from "djwt";
 const JWT_SECRET = Deno.env.get("JWT_SECRET");
 
 if (!JWT_SECRET) {
-  console.warn("⚠️ JWT_SECRET not set, using default (NOT SECURE FOR PRODUCTION)");
+  console.warn("JWT_SECRET not set, using default (NOT SECURE FOR PRODUCTION)");
 }
 
 const keyData = new TextEncoder().encode(
@@ -37,15 +37,15 @@ export async function verifyaccessToken(token: string): Promise<Account | null> 
     const accountId = payload.accountId;
     
     if (typeof accountId !== "string") {
-      console.log("❌ accountId is not a string:", typeof accountId, accountId);
+      console.log("accountId is not a string:", typeof accountId, accountId);
       return null;
     }
     
     const account = getAccountById(accountId);
-    console.log("🔍 Account lookup result:", account ? "found" : "not found");
+    console.log("Account lookup result:", account ? "found" : "not found");
     return account;
   } catch (error) {
-    console.log("❌ Token verification failed:", error);
+    console.log("Token verification failed:", error);
     return null;
   }
 }

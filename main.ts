@@ -108,7 +108,7 @@ function addCorsHeaders(response: Response, corsHeaders: Record<string, string>)
   });
 }
 
-console.log(`🚀 Game Backend running on http://localhost:${PORT}`);
-console.log(`📡 WebSocket endpoint: ws://localhost:${PORT}/_ws?token=JWT_TOKEN`);
+console.log(`Game Backend running on http://localhost:${PORT}`);
+console.log(`WebSocket endpoint: ws://localhost:${PORT}/_ws?token=JWT_TOKEN`);
 
 Deno.serve({ port: PORT }, handleRequest);
