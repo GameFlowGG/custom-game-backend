@@ -1,8 +1,8 @@
-# game-backend
+# Custom Game Backend
 
 <a href="https://console.deno.com/new?clone=https://github.com/GameFlowGG/game-backend"><img src="https://deno.com/button" alt="Deploy on Deno"/></a>
 
-A lightweight game backend template using **Deno**, **SQLite**, **WebSockets**, and **KV Store**, designed to be deployed to [Deno Deploy](https://deno.com/deploy) in seconds.
+A lightweight, custom game backend using **Deno**, **SQLite**, **WebSockets**, and **KV Store**, designed to be deployed to [Deno Deploy](https://deno.com/deploy) in seconds.
 
 ## Features
 
